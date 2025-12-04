@@ -28,35 +28,30 @@ public class ProductController {
 		this.productService = productService;
 	}
 
-	// CREATE
 	@PostMapping
 	public ResponseEntity<ProductDTO> createProduct(@RequestBody ProductDTO productDTO) {
 		ProductDTO saved = productService.createProduct(productDTO);
 		return new ResponseEntity<>(saved, HttpStatus.CREATED);
 	}
 
-	// READ ALL
 	@GetMapping
 	public ResponseEntity<List<ProductDTO>> getAllProducts() {
 		List<ProductDTO> products = productService.getAllProducts();
 		return ResponseEntity.ok(products);
 	}
 
-	// READ ONE
 	@GetMapping("/{id}")
 	public ResponseEntity<ProductDTO> getProductById(@PathVariable Long id) {
 		ProductDTO product = productService.getProductById(id);
 		return ResponseEntity.ok(product);
 	}
 
-	// UPDATE
 	@PutMapping("/{id}")
 	public ResponseEntity<ProductDTO> updateProduct(@PathVariable Long id, @RequestBody ProductDTO productDTO) {
 		ProductDTO updated = productService.updateProduct(id, productDTO);
 		return ResponseEntity.ok(updated);
 	}
 
-	// DELETE
 	@DeleteMapping("/{id}")
 	public ResponseEntity<String> deleteProduct(@PathVariable Long id) {
 		productService.deleteProduct(id);
