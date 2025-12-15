@@ -7,8 +7,15 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import io.jsonwebtoken.ExpiredJwtException;
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+	@ExceptionHandler(ExpiredJwtException.class)
+	public ResponseEntity<String> handleExpiredJwtException(ExpiredJwtException ex) {
+		return new ResponseEntity<>("JWT token has expired. Please login again.", HttpStatus.UNAUTHORIZED);
+	}
 
 	@ExceptionHandler(ApplicationException.class)
 	public ResponseEntity<String> handleApplicationException(ApplicationException ex) {
