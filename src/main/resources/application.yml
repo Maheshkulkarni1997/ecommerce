@@ -91,3 +91,7 @@ logging:
 jwt:
    secret: MVyS5KziwA8qlpF7r2Cq3vZK5eUo8n1X1W7_TBlJtRc
    expiration: 86400000
+
+openrouter:
+  api:
+    key: ${OPENROUTER_API_KEY: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}
