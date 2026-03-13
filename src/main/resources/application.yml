@@ -94,4 +94,4 @@ jwt:
 
 openrouter:
   api:
-    key: ${OPENROUTER_API_KEY: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}
+    key: ${OPENROUTER_API_KEY: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}
